@@ -5,6 +5,9 @@
 ## v 1.01
 ## Based on example code from Dreamscreen SDK Docs and inspired by avwuff's DreamScreenControl.cs
 ## (use avwff's if you just want a C# app: https://github.com/avwuff/DreamScreenControl)
+##
+## modified 2021 by NeoRame
+## update to v 1.1 (color mode and groups added)
 
 import socket
 import sys
@@ -137,7 +140,7 @@ sources = "Which mode? (use the number)"\
         "\n1 - input 2"\
         "\n2 - input 3"
 
-groups = "Use if you have an group setup? (use the number)"\
+groups = "Use, if you have an group setup. (use the number)"\
         "\n0 - No Groups"\
         "\n1 - Use Group 1"\
         "\n2 - Use Group 2"\
@@ -172,7 +175,7 @@ if options.group:
                 options.group = 0
         setGroup(options.group)
     except:
-        print "error: source not a valid number"
+        print "error: group not a valid number"
         sys.exit(0)
 
 if options.mode:
@@ -216,7 +219,7 @@ if options.scene:
                 options.scene = 0
         setScene(options.scene)
     except:
-        print "error: source not a valid number"
+        print "error: scene not a valid number"
         sys.exit(0)
 
 if options.brightness:
