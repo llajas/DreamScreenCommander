@@ -18,9 +18,8 @@ I used a modified version of "genesisfactor" python script (wich is under a MIT 
 ## Installation:
 
 
-install homebridge: ```npm install -g homebridge```                        
-install this plugin: ```npm install -g homebridge-dreamscreen-rm```                    
-manually install this plugin: ```sudo npm install -g git+https://github.com/NeoRame/homebridge-dreamscreen-rm.git```                 
+install homebridge: ```npm install -g homebridge```
+install this plugin: ```npm install -g homebridge-dreamscreen-rm```
 go to plugin settings and update your correct ip address of your DreamScreen (can be found in the App under "Update and Reset").
 
 ## Using the plugin

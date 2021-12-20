@@ -1,7 +1,7 @@
 {
     "pluginAlias": "DreamscreenRM",
     "pluginType": "accessory",
-    "singular": true,
+    "singular": false,
     "headerDisplay": "<img src='https://raw.githubusercontent.com/NeoRame/homebridge-dreamscreen-rm/master/gfx/DreamscreenRM.svg' width='100%'>\n\nControl your DreamScreen with HomeKit",
     "schema": {
         "type": "object",
@@ -10,7 +10,7 @@
                 "title": "Name",
                 "type": "string",
                 "required": true,
-                "default": "DreamScreen HD"
+                "default": "DreamScreenRM"
             },
             "ipadress": {
                 "title": "IP address",
