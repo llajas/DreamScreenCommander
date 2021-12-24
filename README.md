@@ -10,9 +10,9 @@ Control your DreamScreen with HomeKit
 # Overview
 
 DreamScreen RM is a Homebridge plugin that allows you to control your DreamScreen Ambient TV device with HomeKit.
-It featured full control over color of your DS, brightness setting. You can switch to video, music, ambient or sleep mode. It's also possible to activate one of the eight ambient scenes (i didn't add the "random colors" scene for now)
+It featured full control over color of your DS and brightness setting. You can switch between video, music, ambient or sleep mode and it's also possible to activate one of the eight ambient scenes (i didn't add the "random colors" scene for now).
 
-I used a modified version of "genesisfactor" python script (wich is under a MIT Licence) as engine to get this work. Original script can you find here: https://github.com/genesisfactor/DreamScreenCommander
+Thanks allot to Taurean Dyer aka genesisfactor for his permission to use his script that i use in this Project. I used a modified version of his python script (which is under a MIT Licence) as engine to get this plugin to work. Original script can be found here: https://github.com/genesisfactor/DreamScreenCommander
 
 
 ## Installation:
@@ -61,7 +61,7 @@ Third accesoiry is the switch, this is used for setting the mode.
 
 # For advanced Users ONLY!!!
 
-you can use the DreamScreenComander.py standalone on PC for example, for this look at the Original description:
+you can use the DreamScreenComander.py standalone on PC for example, for this look at the Original description (with my updates for the new functions):
 
 # DreamScreenCommander
 **Overview**

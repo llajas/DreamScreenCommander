@@ -10,12 +10,14 @@
                 "title": "Name",
                 "type": "string",
                 "required": true,
+                "placeholder": "DreamScreenRM",
                 "default": "DreamScreenRM"
             },
             "ipadress": {
                 "title": "IP address",
                 "type": "string",
                 "default": "192.168.0.1",
+                "placeholder": "192.168.0.1",
                 "required": true,
                 "format": "ipv4",
                 "description": "The IP adress of your DreamScreen (can be found in the App under *Update and Reset*)"
@@ -44,5 +46,27 @@
                 "required": true
             }
         }
-    }
+    },
+    "layout": [
+        {
+            "type": "fieldset",
+            "items": [
+                {
+                    "type": "flex",
+                    "flex-flow": "row wrap",
+                    "items": [
+                        "name",
+                        "model"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fieldset",
+            "items": [
+                "ipadress",
+                "group"
+            ]
+        }
+    ]
 }
