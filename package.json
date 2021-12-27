@@ -11,7 +11,7 @@
 	"author": "NeoRame",
 	"engines": {
 		"homebridge": ">=0.2.0",
-		"node": ">4.0.0"
+		"node": ">14.0.0"
 	},
 	"keywords": [
 		"homebridge-plugin",
