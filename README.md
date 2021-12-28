@@ -2,6 +2,7 @@
 Control your DreamScreen with HomeKit
 
 #
+[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 [![npm version](https://img.shields.io/npm/v/homebridge-dreamscreen-rm?logoColor=white)](https://www.npmjs.com/package/homebridge-dreamscreen-rm)
 [![npm downloads](https://img.shields.io/npm/dt/homebridge-dreamscreen-rm)](https://www.npmjs.com/package/homebridge-dreamscreen-rm)
 [![License](https://img.shields.io/github/license/neorame/homebridge-dreamscreen-rm)](https://github.com/NeoRame/homebridge-dreamscreen-rm/blob/master/LICENSE)
