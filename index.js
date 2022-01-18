@@ -31,7 +31,7 @@ DreamscreenRMAccessory.prototype.setcolor = function(ipadress) {
     		v: global.brightness
   	});
   	this.log('set dreamscreen color to', color.r, color.g, color.b);
-	command = "python " + __dirname + "/engine/DreamScreenComander.py -i " + ipadress + " -g " + this.group + " -c " + '"' + color.r + " " + color.g + " " + color.b + '"'
+	command = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -c " + '"' + color.r + " " + color.g + " " + color.b + '"'
  	exec(command)
 }
 
