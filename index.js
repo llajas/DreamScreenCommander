@@ -14,7 +14,6 @@ function DreamscreenRMAccessory(log, config) {
 	this.ipadress = config["ipadress"];
 	this.group = config["group"];
 	this.model = config["model"];
-	this.HDR = config["HDR"];
 	this.AmbilightName = "DS video mode";
 	this.AmbientName = "DS ambient mode";
 	this.MusicName = "DS music mode";
@@ -32,7 +31,7 @@ DreamscreenRMAccessory.prototype.setcolor = function(ipadress) {
     		v: global.brightness
   	});
   	this.log('set dreamscreen color to', color.r, color.g, color.b);
-	command = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -c " + '"' + color.r + " " + color.g + " " + color.b + '"'
+	command = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -c " + '"' + color.r + " " + color.g + " " + color.b + '"'
  	exec(command)
 }
 
@@ -44,7 +43,7 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 	.on('set', (value, callback) => {
 		global.brightness = value
 		this.log("Set DreamScreen brightness to:", value)
-  		command = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -b"  + value
+  		command = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -b"  + value
 		exec(command)
 		callback();
 	})
@@ -87,12 +86,12 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 			this.log("Set mode to ambilight")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -m 1"
+			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -m 1"
 			exec(commandon)
 			callback();
 	} else {
 			this.log("Set DreamScreen to standby")
-			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -m 0"
+			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -m 0"
 			exec(commandoff)
 			callback();
 		}
@@ -108,14 +107,14 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 			this.log("Set mode to ambient")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -m 3"
+			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -m 3"
 			exec(commandon)
 			callback();
 	} else {
 			this.log("Set mode to ambilight")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -m 1"
+			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -m 1"
 			exec(commandoff)
 			callback();
 		}
@@ -131,14 +130,14 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 			this.log("Set mode to music")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -m 2"
+			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -m 2"
 			exec(commandon)
 			callback();
 	} else {
 			this.log("Set mode to ambilight")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -m 1"
+			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -m 1"
 			exec(commandoff)
 			callback();
 		}
@@ -154,14 +153,14 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 			this.log("Set scene to Twinkle")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -a 2"
+			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -a 2"
 			exec(commandon)
 			callback();
 	} else {
 			this.log("Set scene to Fireside")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -a 1"
+			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -a 1"
 			exec(commandoff)
 			callback();
 		}
@@ -177,14 +176,14 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 			this.log("Set scene to Rainbow")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -a 4"
+			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -a 4"
 			exec(commandon)
 			callback();
 	} else {
 			this.log("Set scene to Ocean")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -a 3"
+			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -a 3"
 			exec(commandoff)
 			callback();
 		}
@@ -200,14 +199,14 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 			this.log("Set scene to Holiday")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -a 6"
+			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -a 6"
 			exec(commandon)
 			callback();
 	} else {
 			this.log("Set scene to July 4th")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -a 5"
+			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -a 5"
 			exec(commandoff)
 			callback();
 		}
@@ -223,14 +222,14 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 			this.log("Set scene to Forest")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -a 8"
+			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -a 8"
 			exec(commandon)
 			callback();
 	} else {
 			this.log("Set scene to Pop")
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h " + this.HDR + " -a 7"
+			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -a 7"
 			exec(commandoff)
 			callback();
 		}
