@@ -143,7 +143,7 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 		}
 	})
 
-	this.Scene1 = new Service.Switch("Twinkle/ Fireside");
+	this.Scene1 = new Service.Switch("Twinkle - Fireside");
   	this.Scene1.subtype = "Fireside";
 
 	this.Scene1
@@ -166,7 +166,7 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 		}
 	})
 
-	this.Scene2 = new Service.Switch("Rainbow/ Ocean");
+	this.Scene2 = new Service.Switch("Rainbow - Ocean");
   	this.Scene2.subtype = "Ocean";
 
 	this.Scene2
@@ -189,7 +189,7 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 		}
 	})
 
-	this.Scene3 = new Service.Switch("Holiday/ July 4th");
+	this.Scene3 = new Service.Switch("Holiday - July 4th");
   	this.Scene3.subtype = "July 4th";
 
 	this.Scene3
@@ -212,7 +212,7 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 		}
 	})
 
-	this.Scene4 = new Service.Switch("Forest/ Pop");
+	this.Scene4 = new Service.Switch("Forest - Pop");
   	this.Scene4.subtype = "Pop";
 
 	this.Scene4
@@ -235,6 +235,25 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 		}
 	})
 
+	this.HDR = new Service.Switch("HDR Tone Remapping");
+  	this.HDR.subtype = "HDR";
+
+	this.HDR
+	.getCharacteristic(Characteristic.On)
+	.on('set', (value, callback) => {
+	if (value) {
+			this.log("Enable HDR Tone Remapping")
+			commandon = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h 1"
+			exec(commandon)
+			callback();
+	} else {
+			this.log("Disable HDR Tone Remapping")
+			commandoff = "python " + __dirname + "/engine/DreamScreenComander.py -i " + this.ipadress + " -g " + this.group + " -h 0"
+			exec(commandoff)
+			callback();
+		}
+	})
+
 		services.push(this.lightService);
 		services.push(this.AmbilightService);
 		services.push(this.AmbientService);
@@ -243,6 +262,7 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 		services.push(this.Scene2);
 		services.push(this.Scene3);
 		services.push(this.Scene4);
+		services.push(this.HDR);
 		services.push(this.infoService);
 
 	this.infoService
