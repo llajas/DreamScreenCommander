@@ -35,6 +35,16 @@
                 "required": true,
                 "description": "If you're using groups, set your group number here. (from top to bottom: 1,2,3...)"
             },
+            "HDR": {
+                "title": "Set HDR Tone Remapping, 4K version only!",
+                "type": "string",
+                "default": "0",
+                "oneOf": [
+                  { "title": "Disable", "enum": ["0"] },
+                  { "title": "Enable", "enum": ["1"] }
+                ],
+                "required": true
+            },
             "model": {
                 "title": "Model",
                 "type": "string",
@@ -64,8 +74,17 @@
         {
             "type": "fieldset",
             "items": [
-                "ipadress",
-                "group"
+                "ipadress"
+            ]
+        },
+        {
+            "type": "fieldset",
+            "title": "Advanced Settings",
+            "expandable": true,
+            "expanded": false,
+            "items": [
+                "group",
+                "HDR"
             ]
         }
     ]
