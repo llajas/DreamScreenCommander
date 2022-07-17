@@ -76,7 +76,7 @@ DreamscreenRMAccessory.prototype.getServices = function() {
 		}
 	})
 
-	this.AmbilightService = new Service.Lightbulb("1. Ambilight");
+	this.AmbilightService = new Service.Switch("1. Ambilight");
   	this.AmbilightService.subtype = this.AmbilightName;
 
 	this.AmbilightService
