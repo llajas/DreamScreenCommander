@@ -2,7 +2,7 @@
 	"name": "homebridge-dreamscreen-rm",
 	"displayName": "Homebridge DreamScreen RM",
 	"description": "Homebridge plugin for controlling and using DreamScreen over Homekit.",
-	"version": "1.0.11",
+	"version": "1.0.12",
   "license": "MIT",
 	"repository": {
 		"type": "git",
