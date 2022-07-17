@@ -91,13 +91,6 @@ def setSource(source):
     payload=[source]
     buildAndSendPacket(3,32, payload)
 
-def setHDR(HDR):#set HDR Tone Remapping, 4K version only!
-    # 0- disable
-    # 1- enable
-
-    payload=[HDR]
-    buildAndSendPacket(3,96, payload)
-
 def setBrightness(brightness):
     payload=[brightness]
     buildAndSendPacket(3,2, payload)
@@ -154,10 +147,6 @@ groups = "Use, if you have an group setup. (use the number)"\
         "\n2 - Use Group 2"\
         "\n3 - Use Group 3"
 
-hdrs = "Activate HDR Tone Remapping"\
-        "\n0 - disable"\
-        "\n1 - enable"
-
 parser = optparse.OptionParser()
 parser.add_option('-m', '--mode', dest='mode', help=modes)
 parser.add_option('-s', '--source', dest='source', help=sources)
@@ -166,7 +155,6 @@ parser.add_option('-b', '--brightness', dest='brightness', help="Enter from 0-10
 parser.add_option('-i', '--ip', dest='ip', help="Please enter your Dreamscreen's IP address")
 parser.add_option('-c', '--color', dest='color', help='Which color? Use RGB values from 0-255 in this format: "255 255 255" for white.')
 parser.add_option('-g', '--group', dest='group', help=groups)
-parser.add_option('-h', '--hdr', dest='HDR', help=hdrs)
 options, args = parser.parse_args()
 
 if options.ip:
@@ -190,18 +178,6 @@ if options.group:
     except:
         print "error: group not a valid number"
         sys.exit(0)
-
-if options.HDR:
-try:
-    options.HDR = int(options.HDR)
-    if options.HDR > 1:
-            options.HDR = 1
-    elif options.HDR < 0:
-            options.HDR = 0
-    setHDR(options.HDR)
-except:
-    print "error: HDR not a valid number"
-    sys.exit(0)
 
 if options.mode:
     try:
@@ -259,6 +235,6 @@ if options.brightness:
         print "error: brightness not a valid number"
         sys.exit(0)
 
-if (options.ip is None) and (options.group is None) and (options.HDR is None) and (options.mode is None) and (options.color is None) and (options.source is None) and (options.scene is None) and (options.brightness is None):
+if (options.ip is None) and (options.group is None) and (options.mode is None) and (options.color is None) and (options.source is None) and (options.scene is None) and (options.brightness is None):
     print "error: no options were selected"
     sys.exit(0)
