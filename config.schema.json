@@ -1,0 +1,80 @@
+{
+    "pluginAlias": "DreamscreenRM",
+    "pluginType": "accessory",
+    "singular": false,
+    "headerDisplay": "<img src='https://raw.githubusercontent.com/NeoRame/homebridge-dreamscreen-rm/master/gfx/DreamscreenRM.svg' width='100%'>\n\nControl your DreamScreen with HomeKit",
+    "schema": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "title": "Name",
+                "type": "string",
+                "required": true,
+                "placeholder": "DreamScreenRM",
+                "default": "DreamScreenRM"
+            },
+            "ipadress": {
+                "title": "IP address",
+                "type": "string",
+                "default": "192.168.0.1",
+                "placeholder": "192.168.0.1",
+                "required": true,
+                "format": "ipv4",
+                "description": "The IP adress of your DreamScreen (can be found in the App under *Update and Reset*)"
+            },
+            "group": {
+                "title": "Have you configured groups in DreamScreen?",
+                "type": "string",
+                "default": "0",
+                "oneOf": [
+                  { "title": "No", "enum": ["0"] },
+                  { "title": "Yes (set Group #1)", "enum": ["1"] },
+                  { "title": "Group #2", "enum": ["2"] },
+                  { "title": "Group #3", "enum": ["3"] }
+                ],
+                "required": true,
+                "description": "If you're using groups, set your group number here. (from top to bottom: 1,2,3...)"
+            },
+            "model": {
+                "title": "Model",
+                "type": "string",
+                "default": "HD",
+                "oneOf": [
+                  { "title": "DreamScreen 4K", "enum": ["4K"] },
+                  { "title": "DreamScreen HD", "enum": ["HD"] }
+                ],
+                "required": true
+            }
+        }
+    },
+    "layout": [
+        {
+            "type": "fieldset",
+            "items": [
+                {
+                    "type": "flex",
+                    "flex-flow": "row wrap",
+                    "items": [
+                        "name",
+                        "model"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fieldset",
+            "items": [
+                "ipadress"
+            ]
+        },
+        {
+            "type": "fieldset",
+            "title": "Advanced Settings",
+            "expandable": true,
+            "expanded": false,
+            "items": [
+                "group"
+            ]
+        }
+    ]
+}

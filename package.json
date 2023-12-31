@@ -1,0 +1,35 @@
+{
+	"name": "homebridge-dreamscreen-rm",
+	"displayName": "Homebridge DreamScreen RM",
+	"description": "Homebridge plugin for controlling and using DreamScreen over Homekit.",
+	"version": "1.0.13",
+  "license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NeoRame/homebridge-dreamscreen-rm"
+	},
+	"author": "NeoRame",
+	"engines": {
+		"homebridge": ">=0.2.0",
+		"node": ">14.0.0"
+	},
+	"keywords": [
+		"homebridge-plugin",
+		"homekit",
+		"dreamscreen",
+		"ambilight"
+	],
+	"dependencies": {
+		"colorsys": "1.0.22",
+		"child_process": "1.0.2"
+	},
+	"bugs": {
+		"email": "rameonweb@gmx.net",
+		"url": "https://github.com/NeoRame/homebridge-dreamscreen-rm/issues"
+	},
+	"funding": {
+		"type" : "paypal",
+		"url" : "https://paypal.me/Cash4NeoRame"
+	},
+	"homepage": "https://github.com/NeoRame/homebridge-dreamscreen-rm"
+}

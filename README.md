@@ -1,3 +1,69 @@
+<img src='https://raw.githubusercontent.com/NeoRame/homebridge-dreamscreen-rm/master/gfx/DreamscreenRM.svg' wight='100%'>
+Control your DreamScreen with HomeKit
+
+#
+[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
+[![npm version](https://img.shields.io/npm/v/homebridge-dreamscreen-rm?logoColor=white)](https://www.npmjs.com/package/homebridge-dreamscreen-rm)
+[![npm downloads](https://img.shields.io/npm/dt/homebridge-dreamscreen-rm)](https://www.npmjs.com/package/homebridge-dreamscreen-rm)
+[![License](https://img.shields.io/github/license/neorame/homebridge-dreamscreen-rm)](https://github.com/NeoRame/homebridge-dreamscreen-rm/blob/master/LICENSE)
+
+
+# Overview
+
+DreamScreen RM is a Homebridge plugin that allows you to control your DreamScreen Ambient TV device with HomeKit.
+It featured full control over color of your DS and brightness setting. You can switch between video, music, ambient or sleep mode and it's also possible to activate one of the eight ambient scenes (i didn't add the "random colors" scene for now).
+
+Thanks allot to Taurean Dyer aka genesisfactor for his permission to use his script that i use in this Project. I used a modified version of his python script (which is under a MIT Licence) as engine to get this plugin to work. Original script can be found here: https://github.com/genesisfactor/DreamScreenCommander
+
+
+## Installation:
+
+
+install homebridge: ```npm install -g homebridge```
+install this plugin: ```npm install -g homebridge-dreamscreen-rm```
+go to plugin settings and update your correct ip address of your DreamScreen (can be found in the App under "Update and Reset").
+
+## Using the plugin
+You get eight accesoires packed in one tile, seperating them is completely possible
+
+First accesoiry is the led slider, this has two main functions.
+* Changing brightness, simply by sliding to an exact percentage.
+* Changing color, when you change the color the dreamscreen gets set to ambient mode and will display the set color.
+
+Second accesoiry is the switch, this is used for setting the mode.
+* Flipping it on enables video mode / amiblight.
+* Flipping it off puts the dreamscreen to sleep mode.
+
+Third accesoiry is the switch, this is used for setting the mode.
+* Flipping it on enables ambient mode.
+* Flipping it off puts the dreamscreen to video mode.
+
+4th accesoiry is the switch, this is used for setting the mode.
+* Flipping it on enables music mode.
+* Flipping it off puts the dreamscreen to video mode.
+
+5th accesoiry is the switch, this is used for switch between ambient modes.
+* Flipping it on enables Pop Scene.
+* Flipping it off puts the dreamscreen to Forrest Scene.
+
+6th accesoiry is the switch, this is used for switch between ambient modes.
+* Flipping it on enables July 4th Scene.
+* Flipping it off puts the dreamscreen to Holiday Scene.
+
+7th accesoiry is the switch, this is used for switch between ambient modes.
+* Flipping it on enables Ocean Scene.
+* Flipping it off puts the dreamscreen to Rainbow Scene.
+
+8th accesoiry is the switch, this is used for switch between ambient modes.
+* Flipping it on enables Twinkle Scene.
+* Flipping it off puts the dreamscreen to Fireside Scene.
+
+
+
+# For advanced Users ONLY!!!
+
+you can use the DreamScreenComander.py standalone on PC for example, for this look at the Original description (with my updates for the new functions):
+
 # DreamScreenCommander
 **Overview**
 
@@ -11,29 +77,26 @@ My solution will be with a Raspberry Pi, a FLIRC, and a Harmony remote.  Got tir
 
 This was one of my weekend projects (1/13/18 - 1/14/18).  I hope this helps someone else.  Stay tuned for others!
 
-**For you to do:**
-
-Only ONE thing that you HAVE to do: Please enter you IP address between the "" in the IP constant (it will be in the first line after the comment block).  **Example: IP = "192.168.1.2"**.  I did my best to make that **SUPER APPARENT** where to put it :).
-
-Optional changes: change the group number (default is 0 or "No group assigned")
-
 **How to use the script:**
 
 **python \<path-to-this-file> \<option> \<value>**
 
 For Windows users, it will be **\<path-to-python.exe> \<path-to-this-file> \<option> \<value>**
 
+- Show Help screen                  **-h**
+- Temporarily setting IP address:   **-i \<ip address>**
+- Choose Group:                     **-g \<number>**
 - Changing Modes:                   **-m \<number>**
 - Changing Brightness:              **-b \<number>**
 - Changing Sources:                 **-s \<number>**
-- Temporarily setting IP address:   **-i \<ip address>**
 - Changing Scenes:                  **-a \<number>**
-    
-**Example: "python dreamscreen.py -m 0"** will turn off the dreamscreen
+- Changing Color:                   **-c \<0-255 0-255 0-255>**
+
+**Example: "python dreamscreen.py -i <ip address> -g 0 -m 0"** will turn off the dreamscreen
 
 Options **should** be able to be daisy chained.  E.G, if you have more than one DreamScreen, you can temporarily specify which one to talk to.  This is a feature of the way it was written, and there aren't too many other options to be daisy chained...soooo...take it with a grain of salt?
 
-**Example: "python dreamscreen.py -i 192.168.1.2 -m 0"** **should** turn off that particular dreamscreen (untested as I only have one Dream screen)
+**Example: "python dreamscreen.py -i 192.168.1.2 -g 0 -m 0"** **should** turn off that particular dreamscreen (untested as I only have one Dream screen)
 
 **Ideas for usage**
 
@@ -47,17 +110,6 @@ Options **should** be able to be daisy chained.  E.G, if you have more than one 
 - Changing Modes
 - Changing Brightness
 - Changing Inputs
-- Changing Scenes (still debugging)
-
-**Untested by SHOULD work**
-- Temporarily setting IP address
-- Daisy chaining commands
-
-
-****Limitations:****
-
-    1) I don't have groups so nothing having to do with groups works
-    2) right now, everything works based on the values from the docs.  No labeling just yet.  This may never happen as I will be running an external ervice for a UI, so I'll be labeling elsewhere
-    3) Ambient Scenes may need some work
-    4) Colors not working yet as I haven't figured out how I want to implement them- which itself may be custom...
-    5) Groups does not -and probably will not- work as I don't have groups
+- Changing Scenes
+- Changing Groups
+- Changing Color
